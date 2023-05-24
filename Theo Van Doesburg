@@ -1,0 +1,33 @@
+
+function setup() {
+  createCanvas(471, 475); //tamaño concordante con el lienzo original
+  background (200, 200, 208);
+  
+  fill (96, 27,30); //bordó
+  strokeWeight (0);
+  rect (0,390, 50, 475);
+  
+  fill (117,130,81); //verde
+  triangle (258,-1,438,-1, 330,87);
+  
+  strokeWeight (0);
+  stroke (245);
+  fill (245); //blanco "sucio"
+  triangle (60,-200, 60,400, 650,400); //triángulo
+  
+  fill (0);
+  rect (50, 0, 10, 470);//rectángulo vertical izquierdo
+  
+  stroke (0);
+  fill (0);
+  rect (0, 390, 460, 10);//rectángulo horizontal izquierdo
+  
+  strokeWeight (10);
+  strokeCap (PROJECT);
+  line (260,0, 460,198); //rectángulo diagonal 
+  
+  strokeWeight (12);
+  strokeCap (PROJECT);
+  line (435,0, 346,83); //rectángulo diagonal 
+  
+}
