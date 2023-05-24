@@ -1,0 +1,104 @@
+let strokeAncho = 2
+
+
+
+function setup() {
+  createCanvas(800, 800);
+  background(200);
+  frameRate (6);
+}
+ function draw() {    console.log("X: " + mouseX + " Y:" + mouseY);
+    background(200);
+    
+ push()
+ if (mouseIsPressed) {
+    if (mouseButton == LEFT) {
+        fill(65, 100, 74); //verde
+      } else if (mouseButton == RIGHT) {
+        fill(254, 208, 73); //amarillo
+      } else if (mouseButton == CENTER) {
+        fill(229, 152, 155); //rosa
+      }
+    }  
+  let easing = 0.5;
+  
+ 
+  //oreja izq
+    //fill(229, 152, 155);
+  push();
+  
+  
+   noStroke(); 
+//    //translate (155, 55);
+//    let oreja = triangle (137, 256, 155, 55, 286, 193) 
+//    let posInicial = oreja;
+//    let posFinal = oreja + rotate (PI/10);         
+//    if (mouseIsPressed){
+//     oreja = posFinal 
+//    }
+//    oreja = posFinal;
+//    posInicial += (posFinal - posInicial) * easing;
+   triangle (137 , 256, 155 + 20 * sin (frameCount / 2), 55, 286, 193)
+  pop();
+   
+  //oreja der
+    //fill(229, 152, 155);
+   noStroke()
+    triangle(430, 164, 557 + -20 * sin (frameCount / 2), 55, 632, 204);
+
+    //cuerpo
+    //fill(229, 152, 155);
+   stroke(255)
+   strokeWeight (0 + 15 * sin (frameCount / 6))
+   bezier(240, 800, 260, 520, 650, 690, 730, 800);
+                  
+  //cabeza
+   noStroke();
+   //fill(229, 152, 155);
+   triangle(380, 340, 632, 340, 395, 596);
+   triangle(370, 346, 387, 323, 380, 360);
+    //fill(229, 152, 155);
+   bezier(131, 340, 190, 160, 562, 160, 632, 340); //arriba
+   bezier(632, 340, 648, 375, 632, 450, 395, 596); //der
+   bezier(131, 340, 120, 390, 200, 450, 380, 340); //izq
+   bezier(380, 340, 390, 550, 350, 606, 395, 596); //vertical
+   bezier(353, 313, 366, 380, 357, 330, 383, 364); //unión entre izq y vertical
+pop()
+   
+  ///////
+  strokeWeight(strokeAncho); 
+   
+   push ();
+  noFill();
+  ellipse(280, 350, 300, 300); //cara
+   pop();
+   
+  line(150, 110, 125, 390); //oreja izq abajo
+  line(247, 150+5 * sin (frameCount / 2), 
+       109+20 * sin (frameCount / 2), 10+5 * sin (frameCount / 2)); //oreja izq arriba
+
+  line(440, 156 -5 * sin (frameCount / 2), 
+       601 - 20 * sin (frameCount / 2), 15-1 * sin (frameCount / 2)); //oreja der arriba
+  line(565, 72, 640, 217); //oreja der abajo
+
+  line(125, 262, 609, 52); //union de orejas
+
+  line(466, 621, 709, 765); //cuerpo 
+}  //cierra draw 
+
+document.oncontextmenu = function () {
+  return false;
+}
+  //TECLA PRESIONADA 
+function keyPressed () {
+ if (key) {
+    if (keyCode == UP_ARROW) {
+      strokeAncho= strokeAncho +1; 
+        console.log(strokeAncho);
+    }
+    if (keyCode == DOWN_ARROW) {
+      strokeAncho= strokeAncho -1; 
+    }
+  }
+}  
+
